@@ -29,3 +29,99 @@
   padding: 0;
   margin-bottom: 1rem;
 }
+
+#select .loading {
+  background-image: url(ajax-loader.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+}
+
+#select label {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  border-bottom: 2px solid #808080;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  height: 50px;
+  position: relative;
+  will-change: auto;
+}
+
+#select .value-selected,
+#select .opened {
+  align-items: flex-start;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+#select .value-selected.opened {
+  color: inherit;
+}
+
+#select .value-selected {
+  color: #1f75fe;
+}
+
+#select label::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  right: 0px;
+  transform: translateX(-50%);
+  transition: all 0.2s ease;
+  background-image: url('sort-down.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#select .opened::before {
+  transform: translateX(-50%) rotate(180deg);
+}
+
+#select .opened + ul {
+  transform: scale(1);
+}
+
+#select ul::-webkit-scrollbar {
+  width: 0;
+}
+
+#select span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: black;
+  transform: translateY(-20%);
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+#select ul {
+  padding: 0;
+  margin: 0;
+  transform: scale(0);
+  margin-top: 10px;
+  height: 200px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  overflow-y: scroll;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+#select li {
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.1s ease;
+}
+
+#select .selected {
+  color: #1f75fe;
+}
+
+#select li:hover {
+  background-color: #e6e6e6;
+}
